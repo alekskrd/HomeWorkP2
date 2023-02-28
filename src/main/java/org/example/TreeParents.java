@@ -3,17 +3,16 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TreeParents{
+public interface TreeParents {
 
 
-//    public TreeParents(Person father, Person mother, Person daughter, Person son) {
-//        super(father, mother, daughter, son);
-//    }
+    default void getTreeParents(Person father, Person mother, Person son) {
 
-    public static void TreeParents(Person father, Person mother, Person daughter, Person son) {
         List<Person> parents = new ArrayList<>();
-        parents.add(new Person(father, mother, daughter, son));
-//        boolean fl = true;
+        parents.add(father);
+        parents.add(mother);
+//        parents.add(daughter);
+        parents.add(son);
 
         if (father != null) {
             parents.add(father);
@@ -27,34 +26,16 @@ public class TreeParents{
             parents.add(son);
         }
 
-        if (daughter != null) {
-            parents.add(daughter);
+//        if (daughter != null) {
+//            parents.add(daughter);
+//        }
+//        System.out.println(father);
+//        System.out.println(daughter);
+
+
+        for (int i = 0; i < parents.size(); i++) {
         }
 
-        for (
-                int i = 0; i < parents.size(); i++) {
-            Person current = parents.get(i);
-            Person parentFather = current.getFather();
-            Person parentMother = current.getMother();
-            Person parentSon = current.getSon();
-            Person parentDaughter = current.getDaughter();
-
-            if (parentFather != null) {
-                parents.add(parentFather);
-            }
-            if (parentMother != null) {
-                parents.add(parentMother);
-            }
-            if (parentSon != null) {
-                parents.add(parentSon);
-            }
-            if (parentDaughter != null) {
-                parents.add(parentDaughter);
-            }
-        }
-        public TreeParents getTreeParents() {
-            return TreeParents;
-        }
     }
 
 }
